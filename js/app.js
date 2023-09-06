@@ -15,24 +15,24 @@ const isLiked = (id) => {
   return likedPostsId?.length && !!likedPostsId.includes(id);
 };
 
-// let count = 0;
-// const addToLiked = (id) => {
-//   count++;
-//   if (count % 2 === 1) {
-//     likedPostsId.push(id);
-
-//   }
-//   else{
-//     likedPostsId.pop(id);
-    
-//   }
-//   showPosts(posts);
-
-// };
+let count = 0;
 const addToLiked = (id) => {
-    likedPostsId.push(id); 
-    showPosts(posts);
+  count++;
+  if (count % 2 === 1) {
+    likedPostsId.push(id);
+
+  }
+  else{
+    likedPostsId.pop(id);
+    
+  }
+  showPosts(posts);
+
 };
+// const addToLiked = (id) => {
+//     likedPostsId.push(id); 
+//     showPosts(posts);
+// };
 
 const reportPost = (id) => {
   reportedPostsId.push(id);

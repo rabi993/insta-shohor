@@ -29,10 +29,31 @@ const isLiked = (id) => {
 //   showPosts(posts);
 
 // };
+// const addToLiked = (id) => {
+//     likedPostsId.push(id); 
+//     showPosts(posts);
+// };
+
+
+// from session code start
 const addToLiked = (id) => {
-    likedPostsId.push(id); 
+  // likedPostsId.push(id); 
+  // showPosts(posts);
+  const index = likedPostsId.indexOf(id); 
+  if (index === -1) {
+    likedPostsId.push(id);
     showPosts(posts);
+  } else{
+    likedPostsId.splice(index);
+    showPosts(posts);
+  }
+
 };
+// from session code end
+
+
+
+
 
 const reportPost = (id) => {
   reportedPostsId.push(id);
@@ -67,6 +88,7 @@ const switchTab = (id) => {
 const createPost = (post) => {
   const image = post.image;
   const user_image = post.userImage;
+  const userName = post.userName;
   // console.log(post);
   const div = document.createElement("article");
   div.classList.add("post");
@@ -81,7 +103,7 @@ const createPost = (post) => {
                   >
                     <img src="${user_image}" alt="User Picture" />
                   </a>
-                  <a href="#" class="post__user">phero</a>
+                  <a href="#" class="post__user">${userName}</a>
                 </div>
 
                 <button class="post__more-options">
